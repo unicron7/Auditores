@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+    
+    <ui:composition template="/templates/basetemplate.xhtml">
+        <ui:define name="title">
+             <h:outputText value="Usuario"/>
+        </ui:define>
+        
+        <ui:define name="content">
+            
+            <h:form>
+                <!--<h2 class="titulo_centrado">Datos del usuario</h2>-->
+                <p:panelGrid columns="1" styleClass="panel_grid_center02">
+                    <f:facet name="header">
+                        <h:panelGroup style="display:block; text-align:center">
+                            <p:outputLabel value="CAMBIAR CLAVE DE AUDITOR"/>
+                        </h:panelGroup>
+                    </f:facet>
+                    
+                    <p:row>
+                        <p:column><p:outputLabel for="username" value="RUC:"/></p:column>
+                        <p:column><p:spacer width="44" height="10" /></p:column>
+                        <p:column><p:inputText id="username" value="#{loginMB.ruc}"
+                                               size="25" readonly="true"/></p:column>
+                    </p:row>
+                    
+                    <p:password id="pwd" value="#{loginMB.userPassword}" required="true" size="35" label="Clave 0" 
+                                requiredMessage="Debe ingresar una clave"/>
+                    <p:watermark for="pwd" value="Clave actual"/>
+                    
+                    <p:password id="pwd1" value="#{loginMB.newPassword}" match="pwd2" required="true" size="35" label="Clave 1" 
+                            validatorMessage="Las claves no coinciden" requiredMessage="Debe ingresar una clave"/>
+                    <p:watermark for="pwd1" value="Nueva clave"/>
+
+                    <p:password id="pwd2" value="#{loginMB.newPassword}" size="35" label="Clave 2"/>
+                    <p:watermark for="pwd2" value="Confirmar clave"/>
+                    
+                    <p:messages id="messages" showDetail="false" autoUpdate="true"/>
+                    
+                    <f:facet name="footer">
+                        <h:panelGroup style="display:block; text-align:center">
+                            <p:commandButton value="Guardar" action="#{loginMB.savePasswordAction()}" ajax="false"/>
+                            <p:commandButton value="Cancelar" action="#{loginMB.cancelAction()}" immediate="true" ajax="false"/>
+                        </h:panelGroup>
+                    </f:facet>
+                </p:panelGrid>
+            </h:form>
+            
+        </ui:define>
+    </ui:composition>
+</html>
+

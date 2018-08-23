@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    
+    <ui:composition template="../templates/basetemplate.xhtml">
+        <ui:define name="title">
+             <h:outputText value="Persona Natural"/>
+        </ui:define>
+        
+        <ui:define name="content">
+            <h2 class="titulo_centrado">PERSONA NATURAL</h2>
+            <h:form id="form">
+                <p:growl id="growl" showDetail="true"/>
+                
+                <p:panelGrid columns="2" styleClass="panel_grid_center" 
+                             columnClasses="columna_izquierda, columna_derecha">
+                    <f:facet name="header">
+                        <h:panelGroup style="display:block; text-align:center">
+                            <p:outputLabel value="DATOS DEL AUDITOR"/>
+                        </h:panelGroup>
+                    </f:facet>
+                    
+                    <p:outputLabel value="RUC:"></p:outputLabel>
+                    <p:outputLabel value="#{loginMB.pae.ruc}"></p:outputLabel>
+
+                    <p:outputLabel value="Razón social:"></p:outputLabel>
+                    <p:inputText id="rsocial" size="30" value="#{loginMB.pae.razonSocial}" requiredMessage="Este campo es obligatorio" required="true" validatorMessage="Valor no válido">
+                        <f:validateRegex pattern="[a-zA-Z0-9ñáéíóúÑÁÉÍÓÚ\s]*"/>
+                    </p:inputText>
+                    <p:watermark for="rsocial" value="Razón Social *"/>
+                    <p:message for="rsocial"/>
+                    
+                    <p:outputLabel value="Años de experiencia:"></p:outputLabel>
+                    <p:spinner  value="#{loginMB.pae.aniosExperiencia}" min="5" max="25" size="5"></p:spinner>
+
+                    <p:outputLabel value="Resumen experiencia:"></p:outputLabel>
+                    <p:inputTextarea autoResize="false" cols="28" value="#{loginMB.pae.resumenExperiencia}"></p:inputTextarea>
+                    
+                    <p:outputLabel value="Email:"></p:outputLabel>
+                    <p:inputText id="email" size="30" value="#{loginMB.pae.email}" validatorMessage="El email ingresado no es valido">
+                        <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$"/>
+                    </p:inputText>
+                    <p:watermark for="email" value="Dirección de Email *"/>
+                    <p:message for="email" />
+                    
+                    <p:outputLabel value="Teléfono fijo"></p:outputLabel>
+                    <p:inputText id="fijo" size="30" value="#{loginMB.pae.telefonoFijo}" requiredMessage="Este campo es obligatorio" required="true" validatorMessage="Valor no válido">
+                        <f:validateLength minimum="7" maximum="9"/>
+                        <f:validateRegex pattern="[0-9]*"/>
+                    </p:inputText>
+                    <p:watermark for="fijo" value="Telefono fijo *"/>
+                    <p:message for="fijo" />
+
+                    <p:outputLabel value="Teléfono movil:"></p:outputLabel>
+                    <p:inputText id="movil" size="30" value="#{loginMB.pae.telefonoMovil}" requiredMessage="Este campo es obligatorio" required="true" validatorMessage="Valor no válido">
+                        <f:validateLength minimum="10" maximum="10"/>
+                        <f:validateRegex pattern="[0-9]*"/>
+                    </p:inputText>
+                    <p:watermark for="movil" value="Telefono móvil *"/>
+                    <p:message for="movil" />
+                    
+                    <f:facet name="footer">
+                        <h:panelGroup style="display:block; text-align:center">
+                        </h:panelGroup>
+                    </f:facet>
+                </p:panelGrid>
+                    
+                
+                <p:panelGrid columns="2" styleClass="panel_grid_center"
+                             columnClasses="columna_izquierda, columna_derecha">
+                    <f:facet name="header">
+                        <h:panelGroup style="display:block; text-align:center">
+                            <p:outputLabel value="DATOS PERSONALES"/>
+                        </h:panelGroup>
+                    </f:facet>
+                    
+                    <p:outputLabel value="Cédula:"></p:outputLabel>
+                    <p:inputText id="cedula" size="30" value="#{loginMB.pae.cedulaRepresentanteLegal}" validatorMessage="La cédula no es valida">
+                        <f:validateLength minimum="10" maximum="10"/>
+                        <f:validateRegex pattern="[0-9]*"/>
+                    </p:inputText>
+                    <p:watermark for="cedula" value="CI representante legal *"/>
+                    <p:message for="cedula" />
+
+                    <p:outputLabel value="Nombres:"></p:outputLabel>
+                    <p:inputText id="nombre" size="30" value="#{loginMB.pae.nombreRepresentanteLegal}" requiredMessage="Este campo es obligatorio" required="true" validatorMessage="Valor no válido">
+                        <f:validateRegex pattern="[a-zA-ZñáéíóúÑÁÉÍÓÚ\s]*"/>
+                    </p:inputText>
+                    <p:watermark for="nombre" value="Nombre representante legal *"/>
+                    <p:message for="nombre"/>
+                    
+                    <p:outputLabel value="Apellidos:"></p:outputLabel>
+                    <p:inputText id="apellido" size="30" value="#{loginMB.pae.apellidoRepresentanteLegal}" requiredMessage="Este campo es obligatorio" required="true" validatorMessage="Valor no válido">
+                        <f:validateRegex pattern="[a-zA-ZñáéíóúÑÁÉÍÓÚ\s]*"/>
+                    </p:inputText>
+                    <p:watermark for="apellido" value="Apellido representante legal *"/>
+                    <p:message for="apellido"/>
+
+                    <p:outputLabel value="Título:"></p:outputLabel>
+                    <p:inputText id="titulo" size="30" value="#{loginMB.pae.titulo}" requiredMessage="Este campo es obligatorio" required="true">
+                        <f:validateRegex pattern="[a-zA-ZñáéíóúÑÁÉÍÓÚ.,\s]*"/>
+                    </p:inputText>
+                    <p:watermark for="titulo" value="Título profesional *"/>
+                    <p:message for="titulo"/>
+
+                    <p:outputLabel value="Registro Senescyt:"></p:outputLabel>
+                    <p:inputText id="senescyt" size="30" value="#{loginMB.pae.regSenescyt}" requiredMessage="Este campo es obligatorio" required="true" validatorMessage="Valor no válido">
+                        <f:validateRegex pattern="[a-zA-Z0-9-]*"/>
+                    </p:inputText>
+                    <p:watermark for="senescyt" value="Número de registro Senescyt *"/>
+                    <p:message for="senescyt"/>
+                    
+                    <f:facet name="footer">
+                        <h:panelGroup style="display:block; text-align:center">
+                        </h:panelGroup>
+                    </f:facet>
+                </p:panelGrid>
+                
+                <p:panelGrid columns="2" styleClass="panel_grid_center"
+                             columnClasses="columna_izquierda, columna_derecha">
+                    <f:facet name="header">
+                        <h:panelGroup style="display:block; text-align:center">
+                            <p:outputLabel value="DIRECCIÓN"/>
+                        </h:panelGroup>
+                    </f:facet>
+                    
+                    <p:outputLabel value="Provincia:"></p:outputLabel>
+                    <p:selectOneMenu  id="somProvincia" required="true" value="#{loginMB.pae.direccion.provincia}">
+                        <f:selectItems value="#{loginMB.provincias}"/>
+                    </p:selectOneMenu>
+
+                    <p:outputLabel value="Ciudad:"></p:outputLabel>
+                    <p:inputText size="37" value="#{loginMB.pae.direccion.ciudad}" requiredMessage="Este campo es obligatorio" required="true" >
+                        <f:validateRegex pattern="[a-zA-ZñáéíóúÑÁÉÍÓÚ\s]*"/>
+                    </p:inputText>
+
+                    <p:outputLabel value="Calles:"></p:outputLabel>
+                    <p:inputText size="37" value="#{loginMB.pae.direccion.calles}" requiredMessage="Este campo es obligatorio" required="true">
+                        <f:validateRegex pattern="[a-zA-Z0-9ñáéíóúÑÁÉÍÓÚ.,\s]*"/>
+                    </p:inputText>
+
+                    <p:outputLabel value="Número:"></p:outputLabel>
+                    <p:inputText size="37" value="#{loginMB.pae.direccion.numero}" requiredMessage="Este campo es obligatorio" required="true">
+                        <f:validateRegex pattern="[a-zA-Z0-9-/\s]*"/>
+                    </p:inputText>
+                    
+                    <f:facet name="footer">
+                        <h:panelGroup style="display:block; text-align:center">
+                        </h:panelGroup>
+                    </f:facet>
+                </p:panelGrid>
+                
+                <p:panelGrid columns="1" styleClass="panel_grid_center">                    
+                    <f:facet name="footer">
+                        <h:panelGroup style="display:block; text-align:center">
+                            <p:commandButton value="Guardar" action="#{loginMB.saveAuditorAction()}" ajax="false" onclick="PF('dlgupdate').show();"/>
+                            <p:commandButton value="Cancelar" action="#{loginMB.cancelAction()}" ajax="false" immediate="true"></p:commandButton>
+                        </h:panelGroup>
+                    </f:facet>
+                </p:panelGrid>
+                
+                <p:dialog header="Actualización completa" widgetVar="dlgupdate" modal="true" height="100">
+                    <h4 class="welcomemsg"><p:outputLabel value="Actualización correcta"/></h4>
+                </p:dialog> 
+            </h:form>
+            
+            
+            
+        </ui:define>
+    </ui:composition>
+</html>
+

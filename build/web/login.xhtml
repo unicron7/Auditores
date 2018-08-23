@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    
+    <ui:composition template="/templates/basetemplate.xhtml">
+        <ui:define name="title">
+             <h:outputText value="Login Registro de Auditores Tecnico Mineros"/>
+        </ui:define>
+        
+        <ui:define name="content">
+            <p:growl id="growl" autoUpdate="true" showDetail="true"/>
+            <h:form class="form-4">
+                <p:panelGrid columns="2" styleClass="panel_grid_center_login">
+                    <f:facet name="header">
+                        <h:panelGroup style="display:block; text-align:center">
+                            <p:outputLabel value="Ingreso al Sistema"></p:outputLabel>
+                        </h:panelGroup>
+                    </f:facet>
+                    
+                    <p:outputLabel value="Usuario:"></p:outputLabel>
+                    <p:inputText size="30" value="#{loginMB.ruc}"></p:inputText>
+                    <p:outputLabel value="Clave:"></p:outputLabel>
+                    <p:password size="30" value="#{loginMB.userPassword}"></p:password>
+                    
+                    <f:facet name="footer">
+                        <h:panelGroup style="display:block; text-align:center">
+                            <p:commandButton value="Ingresar" action="#{loginMB.loginAction()}" icon="ui-icon-unlocked"  ajax="false"></p:commandButton>
+                        </h:panelGroup>
+                    </f:facet>
+                </p:panelGrid>
+                
+                <h:panelGroup style="display:block; text-align:center">
+                    <h:link value="Registrarse" outcome="persontypechooser" styleClass="lnk"></h:link>
+                    <p:outputLabel value=" - "></p:outputLabel>
+                    <h:link value="Recuperar clave" outcome="resetpasswd" styleClass="lnk"></h:link>
+                </h:panelGroup>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>
+

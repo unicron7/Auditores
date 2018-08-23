@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    
+    <ui:composition template="/templates/basetemplate.xhtml">
+        <ui:define name="title">
+             <h:outputText value="Usuario"/>
+        </ui:define>
+        
+        <ui:define name="content">
+            <p:growl id="growl" showDetail="false" autoUpdate="true"/>
+            <h:form id="resetpasswdfrm">
+                <h:link outcome="login" styleClass="lnks">
+                    <p:graphicImage value="./resources/images/back-arrow-icon.png" width="30" height="30"/>
+                    <br/>
+                    <p:outputLabel value="Volver"/>
+                </h:link>
+                
+                <p:panelGrid id="checkpanel" styleClass="panelgrid-resetpassword">
+                    <p:row>
+                        <p:column colspan="2" style="text-align: center">
+                            <h2>Proporcione la siguiente información</h2>
+                        </p:column>
+                    </p:row>
+                    
+                    <p:row>
+                        <p:column style="text-align: right">
+                            Número de RUC:
+                        </p:column>
+                        <p:column>
+                            <p:inputMask id="numeroruc" mask="9999999999001"
+                                         required="true" requiredMessage="El campo ruc es requerido"
+                                         value="#{resetPasswdMB.ruc}"/>
+                        </p:column>
+                    </p:row>
+                    
+                    <p:row>
+                        <p:column style="text-align: right">
+                            Correo electrónico:
+                        </p:column>
+                        <p:column>
+                            <p:inputText id="email" requiredMessage="el campo correo electronico es requerido" validatorMessage="El valor ingresado no es válido"
+                                         value="#{resetPasswdMB.email}">
+                                <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$"/>
+                            </p:inputText>
+                        </p:column>
+                    </p:row>
+                    
+                    <p:row>
+                        <p:column style="text-align: right">
+                            Ingrese el texto de la imagen:
+                        </p:column>
+                        <p:column style="text-align: right">
+                            <p:captcha id="captcha" requiredMessage="Debe ingresar el texto de la imagen"
+                                       validatorMessage="El texto no concuerda con la imagen"/>
+                        </p:column>
+                    </p:row>
+                    
+                    <p:row>
+                        <p:column colspan="2" style="text-align: center">
+                            <p:commandButton value="Enviar" update="captcha numeroruc email :growl" 
+                                             actionListener="#{resetPasswdMB.check}" oncomplete="Recaptcha.reload();showResetMsg();"/>
+                        </p:column>
+                    </p:row>
+                </p:panelGrid>
+                <p:remoteCommand name="showResetMsg" actionListener="#{loginMB.showMsg()}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>
+

@@ -1,0 +1,358 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    
+    <ui:composition template="/templates/basetemplate.xhtml">
+        <ui:define name="title">
+             <h:outputText value="Persona Jurídica"/>
+        </ui:define>
+        
+        <ui:define name="content">
+            <p:growl id="growl" showDetail="true"/>
+            
+            <h2 class="titulo_centrado">PERSONA JURÍDICA</h2>
+            <h:form id="form3">
+                <p:panelGrid styleClass="panel_grid_center">
+                    <f:facet name="header">
+                        <p:row>
+                            <p:column colspan="2">
+                                <h:panelGroup style="display:block; text-align:center">
+                                    <p:outputLabel value="DATOS DE LA ENTIDAD"/>
+                                </h:panelGroup>
+                            </p:column>
+                        </p:row>
+                    </f:facet>
+                    
+                    <p:row>
+                        <p:column styleClass="columna_izquierda" style="width: 50%">
+                            <p:outputLabel for="ruc" value="RUC:"/>
+                        </p:column>
+                        
+                        <p:column styleClass="columna_derecha" style="width: 50%">
+                            <p:inputText id="ruc" value="#{empresaConsultoraMB.empresaConsultoraAuditoria.ruc}" required="true" requiredMessage="RUC es requerido"
+                                 validatorMessage="El RUC ingresado no es válido" validator="#{empresaConsultoraMB.verificarRucRepetido}"
+                                 styleClass="inputtext-form">
+                                <f:validateLength minimum="13" maximum="13"/>
+                                <f:validateRegex pattern="[0-9]*"/>
+                            </p:inputText>
+                            <p:watermark for="ruc" value="Número de RUC *"/>
+                        </p:column>
+                    </p:row>
+                    
+                    <p:row>
+                        <p:column styleClass="columna_izquierda">
+                            <p:outputLabel for="rsocial" value="Razón social:"/>
+                        </p:column>
+                        
+                        <p:column styleClass="columna_derecha">
+                            <p:inputText id="rsocial" size="30" value="#{empresaConsultoraMB.empresaConsultoraAuditoria.razonSocial}" requiredMessage="Razón social es requerido" required="true"
+                                         validatorMessage="La razón social ingresada no es válida" styleClass="inputtext-form">
+                                <f:validateRegex pattern="[a-zA-Z0-9ñáéíóúÑÁÉÍÓÚ\s]*"/>
+                            </p:inputText>
+                            <p:watermark for="rsocial" value="Razón Social *"/>
+                        </p:column>
+                    </p:row>
+                    
+                    <p:row>
+                        <p:column styleClass="columna_izquierda">
+                            <p:outputLabel value="Años de experiencia:"/>
+                        </p:column>
+                        
+                        <p:column styleClass="columna_derecha">
+                            <p:spinner  value="#{empresaConsultoraMB.empresaConsultoraAuditoria.aniosExperiencia}" min="5" max="25" size="5" required="true"/>
+                        </p:column>
+                    </p:row>
+                    
+                    <p:row>
+                        <p:column styleClass="columna_izquierda">
+                            <p:outputLabel value="Resumen experiencia:"/>
+                        </p:column>
+                        
+                        <p:column styleClass="columna_derecha" rowspan="2">
+                            <p:inputTextarea autoResize="false" value="#{empresaConsultoraMB.empresaConsultoraAuditoria.resumenExperiencia}" styleClass="inputtextarea-form"
+                                     counter="counter" maxlength="2000" counterTemplate="{0} caracteres restantes." style="font-size: 11px"/>
+                        </p:column>
+                    </p:row>
+                    
+                    <p:row>
+                        <p:column styleClass="columna_izquierda">
+                            <p:outputLabel id="counter" style="font-size: 9px"/>
+                        </p:column>
+                    </p:row>
+                    
+                    <p:row>
+                        <p:column styleClass="columna_izquierda">
+                            <p:outputLabel for="email" value="Correo electrónico:"/>
+                        </p:column>
+                        
+                        <p:column styleClass="columna_derecha">
+                            <p:inputText id="email" value="#{empresaConsultoraMB.empresaConsultoraAuditoria.email}" required="true" requiredMessage="Correo electrónico es requerido"
+                                         validatorMessage="El correo ingresado no es válido" styleClass="inputtext-form">
+                                <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$"/>
+                            </p:inputText>
+                            <p:watermark for="email" value="Dirección de correo electrónico *"/>
+                        </p:column>
+                    </p:row>
+                    
+                    <p:row>
+                        <p:column styleClass="columna_izquierda">
+                            <p:outputLabel for="fijo" value="Teléfono fijo"/>
+                        </p:column>
+                        
+                        <p:column styleClass="columna_derecha">
+                            <p:inputText id="fijo" size="36" value="#{empresaConsultoraMB.empresaConsultoraAuditoria.telefonoFijo}" requiredMessage="Teléfono fijo es requerido" required="true"
+                                         validatorMessage="Teléfono fijo: el valor ingresado no es válido">
+                                <f:validateLength minimum="7" maximum="9"/>
+                                <f:validateRegex pattern="[0-9]*"/>
+                            </p:inputText>
+                            <p:watermark for="fijo" value="Telefono fijo *"/>
+                        </p:column>
+                    </p:row>
+                    
+                    <p:row>
+                        <p:column styleClass="columna_izquierda">
+                            <p:outputLabel for="movil" value="Teléfono movil:"/>
+                        </p:column>
+                        
+                        <p:column styleClass="columna_derecha">
+                            <p:inputText id="movil" size="36" value="#{empresaConsultoraMB.empresaConsultoraAuditoria.telefonoMovil}" requiredMessage="Teléfono movil es requerido" required="true"
+                                         validatorMessage="Teléfono movil: el valor ingresado no es válido">
+                                <f:validateLength minimum="10" maximum="10"/>
+                                <f:validateRegex pattern="[0-9]*"/>
+                            </p:inputText>
+                            <p:watermark for="movil" value="Telefono movil *"/>
+                        </p:column>
+                    </p:row>
+                    
+                    <p:row>
+                        <p:column styleClass="columna_izquierda">
+                            <p:outputLabel value="Tipo de auditor:"/>
+                        </p:column>
+                        
+                        <p:column styleClass="columna_derecha">
+                            <p:selectOneMenu  id="somTipoAuditor" required="true" value="#{profesionalAuditorMB.selectedTipoAuditorValue}"
+                                              converter="#{catalogoConverter}" styleClass="onemenu-form" requiredMessage="Debe seleccionar un tipo de auditor">
+                                <f:selectItem itemLabel="Seleccione..." itemValue="#{null}" noSelectionOption="true"/>
+                                <f:selectItems value="#{catalogMB.tiposAuditor}"
+                                               var="tipoauditor"
+                                               itemLabel="#{tipoauditor.nombre}"
+                                               itemValue="#{tipoauditor}"/>
+                            </p:selectOneMenu>
+                        </p:column>
+                    </p:row>
+                </p:panelGrid>
+                
+                <p:panelGrid styleClass="panel_grid_center">
+                    <f:facet name="header">
+                        <p:row>
+                            <p:column colspan="2">
+                                <h:panelGroup style="display:block; text-align:center">
+                                    <p:outputLabel value="DATOS DEL REPRESENTANTE LEGAL"/>
+                                </h:panelGroup>
+                            </p:column>
+                        </p:row>
+                    </f:facet>
+                    
+                    <p:row>
+                        <p:column styleClass="columna_izquierda" style="width: 50%">
+                            <p:outputLabel for="cedula" value="Cédula:"/>
+                        </p:column>
+                        
+                        <p:column styleClass="columna_derecha" style="width: 50%">
+                            <p:inputText id="cedula" size="30" value="#{empresaConsultoraMB.empresaConsultoraAuditoria.cedulaRepresentanteLegal}" required="true" requiredMessage="Cédula es requerido"
+                                         validatorMessage="La cédula ingresada no es valida">
+                                <f:validateLength minimum="10" maximum="10"/>
+                                <f:validateRegex pattern="[0-9]*"/>
+                            </p:inputText>
+                            <p:watermark for="cedula" value="CI representante legal *"/>
+                        </p:column>
+                    </p:row>
+                    
+                    <p:row>
+                        <p:column styleClass="columna_izquierda">
+                            <p:outputLabel for="nombre" value="Nombres:"/>
+                        </p:column>
+                        
+                        <p:column styleClass="columna_derecha">
+                            <p:inputText id="nombre" size="30" value="#{empresaConsultoraMB.empresaConsultoraAuditoria.nombreRepresentanteLegal}" requiredMessage="Nombres es requerido" required="true" validatorMessage="Valor no válido">
+                                <f:validateRegex pattern="[a-zA-ZñáéíóúÑÁÉÍÓÚ\s]*"/>
+                            </p:inputText>
+                            <p:watermark for="nombre" value="Nombre representante legal *"/>
+                        </p:column>
+                    </p:row>
+                    
+                    <p:row>
+                        <p:column styleClass="columna_izquierda">
+                            <p:outputLabel for="apellido" value="Apellidos:"/>
+                        </p:column>
+                        
+                        <p:column styleClass="columna_derecha">
+                            <p:inputText id="apellido" size="30" value="#{empresaConsultoraMB.empresaConsultoraAuditoria.apellidoRepresentanteLegal}" requiredMessage="Apellidos es requerido" required="true" validatorMessage="Valor no válido">
+                                <f:validateRegex pattern="[a-zA-ZñáéíóúÑÁÉÍÓÚ\s]*"/>
+                            </p:inputText>
+                            <p:watermark for="apellido" value="Apellido representante legal *"/>
+                        </p:column>
+                    </p:row>
+                </p:panelGrid>
+                
+                <p:panelGrid columns="2" styleClass="panel_grid_center"
+                             columnClasses="columna_izquierda, columna_derecha">
+                    <f:facet name="header">
+                        <h:panelGroup style="display:block; text-align:center">
+                            <p:outputLabel value="DIRECCIÓN"/>
+                        </h:panelGroup>
+                    </f:facet>
+                    <p:outputLabel value="Provincia:"></p:outputLabel>
+                    <p:selectOneMenu  id="somProvincia" required="true" value="#{empresaConsultoraMB.empresaConsultoraAuditoria.direccion.provincia}"
+                                      converter="#{localidadConverter}" requiredMessage="Debe seleccionar una provincia">
+                        <f:selectItem itemLabel="Seleccione..." itemValue="#{null}" noSelectionOption="true"/>
+                        <f:selectItems value="#{profesionalAuditorMB.provincias}"
+                                       var="l"
+                                       itemLabel="#{l.nombre}"
+                                       itemValue="#{l}"/>
+                    </p:selectOneMenu>
+
+                    <p:outputLabel for="city" value="Ciudad:"/>
+                    <p:inputText id="city" size="37" value="#{empresaConsultoraMB.empresaConsultoraAuditoria.direccion.ciudad}" requiredMessage="Ciudad es requerido" required="true"
+                                 validatorMessage="La ciudad ingresada no es válida">
+                        <f:validateRegex pattern="[a-zA-ZñáéíóúÑÁÉÍÓÚ\s]*"/>
+                    </p:inputText>
+
+                    <p:outputLabel for="streets" value="Calles:"/>
+                    <p:inputText id="streets" size="37" value="#{empresaConsultoraMB.empresaConsultoraAuditoria.direccion.calles}" requiredMessage="Calles es requerido" required="true"
+                                 validatorMessage="Las calles ingresadas no son válidas">
+                        <f:validateRegex pattern="[a-zA-Z0-9ñáéíóúÑÁÉÍÓÚ.,\s]*"/>
+                    </p:inputText>
+
+                    <p:outputLabel for="number" value="Número:"/>
+                    <p:inputText id="number" size="37" value="#{empresaConsultoraMB.empresaConsultoraAuditoria.direccion.numero}" requiredMessage="Número es requerido" required="true"
+                                 validatorMessage="El número ingresado no es válido">
+                        <f:validateRegex pattern="[a-zA-Z0-9-/\s]*"/>
+                    </p:inputText>
+                </p:panelGrid>
+                
+                <p:panelGrid id="panelpago01" styleClass="panel_grid_pagos">
+                    <f:facet name="header">
+                        <p:row>
+                            <p:column>
+                                <p:outputLabel value="DETALLE DE PAGOS"/>
+                            </p:column>
+                        </p:row>
+                    </f:facet>
+                    
+                    <p:row>
+                        <p:column>
+                            <p:dataTable id="pagodt" styleClass="textotablaclb" var="transaccion" 
+                                         value="#{empresaConsultoraMB.empresaConsultoraAuditoria.pagos}" emptyMessage="No se han agregado pagos">
+                                <p:column headerText="Entidad">
+                                    <h:outputText value="#{transaccion.entidadFinanciera}"/>
+                                </p:column>
+
+                                <p:column headerText="Número">
+                                    <h:outputText value="#{transaccion.numeroDeposito}"/>
+                                </p:column>
+
+                                <p:column headerText="Fecha">
+                                    <h:outputText value="#{transaccion.obtenerFecha()}"/>
+                                </p:column>
+
+                                <p:column headerText="Valor">
+                                    <h:outputText value="#{transaccion.obtenerValor()}"/>
+                                </p:column>
+
+                                <p:column headerText="Quitar" style="width:50px;text-align: center">
+                                    <p:commandButton actionListener="#{empresaConsultoraMB.removePago(transaccion)}" icon="ui-icon-close" 
+                                                     update=":form3:pagodt" immediate="true"/>
+                                </p:column>
+                            </p:dataTable>
+                        </p:column>
+                    </p:row>
+                    
+                    <p:row>
+                        <p:column style="text-align: right">
+                            <p:commandButton value="Agregar" update=":addpagopjdlg" oncomplete="PF('addpago').show()"
+                                     immediate="true"/>
+                        </p:column>
+                    </p:row>
+                </p:panelGrid>
+                
+                <p:panelGrid columns="1" styleClass="panel_grid_pagos">
+                    <f:facet name="footer">
+                        <h:panelGroup style="display:block; text-align:center">
+                            <p:commandButton value="Siguiente" action="#{empresaConsultoraMB.goToColaboradores()}" ajax="false" update="growl"></p:commandButton>
+                            <p:commandButton value="Cancelar" action="#{empresaConsultoraMB.cancelAction()}" ajax="false" immediate="true"></p:commandButton>
+                        </h:panelGroup>
+                    </f:facet>
+                </p:panelGrid>
+            </h:form>
+            
+            
+            <p:dialog id="addpagopjdlg" widgetVar="addpago" header="Agregar pago" modal="true" 
+                      resizable="false" showEffect="clip" hideEffect="clip" width="500" height="170">
+                <h:form id="formaddpago">
+                    <p:panelGrid styleClass="panelgridaddpago">
+                        <p:row>
+                            <p:column style="background-color: #f3eded">
+                                <p:outputLabel value="Entidad financiera:"></p:outputLabel>
+                            </p:column>
+                            <p:column>
+                                <p:outputLabel id="entidad02" value="#{empresaConsultoraMB.nombreEntidadFinanciera}"/>
+                                <p:watermark for="entidad02" value=""/>
+                                <p:message for="entidad02" display="tooltip"/>
+                            </p:column>
+                        </p:row>
+
+                        <p:row>
+                            <p:column style="background-color: #f3eded">
+                                <p:outputLabel value="Número depósito:"></p:outputLabel>
+                            </p:column>
+                            <p:column>
+                                <p:inputText id="numdeposito02" value="#{empresaConsultoraMB.pago.numeroDeposito}" size="30" validatorMessage="Valor no válido">
+                                    <f:validateRegex pattern="[0-9]*"/>
+                                </p:inputText>
+                                <p:watermark for="numdeposito02" value="Número del depósito *"/>
+                                <p:message for="numdeposito02" display="tooltip"/>
+                            </p:column>
+                        </p:row>
+                        
+                        <p:row>
+                            <p:column style="background-color: #f3eded">
+                                <p:outputLabel value="Valor depósito:"/>
+                            </p:column>
+                            <p:column>
+                                <p:inputText id="valordeposito02" value="#{empresaConsultoraMB.pago.valorDeposito}" size="30" validatorMessage="Valor no válido">
+                                    <f:convertNumber maxIntegerDigits="3" maxFractionDigits="2" pattern="000.##"/>
+                                </p:inputText>
+                                <p:watermark for="valordeposito02" value="000,00 *"/>
+                                <p:message for="valordeposito02" display="tooltip"/>
+                            </p:column>
+                        </p:row>
+                        
+                        <p:row>
+                            <p:column style="background-color: #f3eded">
+                                <p:outputLabel value="Fecha depósito:"/>
+                            </p:column>
+                            <p:column>
+                                <p:calendar id="fecha02" value="#{empresaConsultoraMB.pago.fechaDeposito}" readonlyInput="true" 
+                                            pattern="dd-MM-yyyy" effect="slideDown" size="30" maxdate="#{empresaConsultoraMB.fechaMaxPago}" 
+                                            widgetVar="fechawg"/>
+                            </p:column>
+                        </p:row>
+                        
+                        <p:row>
+                            <p:column colspan="2" style="text-align: right">
+                                <p:commandButton value="Aceptar" actionListener="#{empresaConsultoraMB.addPago()}"
+                                                 oncomplete="PF('addpago').hide()" update=":form3:pagodt :growl"/>
+                            </p:column>
+                        </p:row>
+                    </p:panelGrid>
+                </h:form>
+            </p:dialog>
+        </ui:define>
+    </ui:composition>
+</html>
+

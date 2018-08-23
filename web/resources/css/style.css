@@ -1,0 +1,585 @@
+ /* 
+    Created on : 04/03/2015, 03:30:07 PM
+    Author     : mejiaw
+*/
+body {
+    /* background-image: url('../images/fd.jpg');*/
+}
+
+form {
+    width: 100%;
+}
+
+h1 {
+    font-size: 22px;
+    color: #000000;
+}
+
+h2 {
+    font-size: 14px;
+    color: #000000;
+}
+
+h3 {
+    color: #000000;
+}
+
+h4 {
+    font-size: 1.2em;
+}
+
+/* link */
+.lnkadjuntos {
+    text-decoration: none;
+}
+a.lnkadjuntos:link {
+    color: #000000;
+}
+/* visited link */
+a.lnkadjuntos:visited {
+    color: #000000;
+}
+/* mouse over link */
+a.lnkadjuntos:hover {
+    color: #FF6600;
+}
+/* selected link */
+a.lnkadjuntos:active {
+    color: buttonface;
+}
+
+.titulo_centrado {
+    text-align: center;
+}
+
+.texto_centrado {
+    text-align: center;
+}
+
+.texto_centrado_2 {
+    margin: 0 auto;
+}
+
+#header {
+    position: relative;
+    background-color: #ffffff;
+    color: white;
+    margin: 0px 0px 10px 0px;
+}
+
+.center_content {
+    position: relative;
+    background-color: #f4f4f4;
+    text-align: justify;
+}
+
+#footer {
+    position: relative;
+    background-color: #f3eded;
+    margin: 10px 0px 0px 0px;
+    text-align: center;
+}
+
+.style_orange {
+    background-color: orange;
+}
+
+.panelgridrequisitos {
+    width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+.panelgridrequisitos tr, .panelgridrequisitos td {
+    border: white;
+    background-color: #30c1d8;
+    font-size: 1.15em;
+    font-weight: bold;
+    color: white;
+    
+}
+.columnareq01 {
+    text-align: right;
+}
+.columnareq02 {
+    text-align: right;
+}
+.columnareq03 {
+    text-align: left;
+}
+
+.panelgridchooser {
+    width: 600px;
+    margin: 0 auto;
+}
+.panelgridchooser tr, .panelgridchooser td {
+    border: white;
+}
+
+.panel_grid_center {
+    margin: 0 auto;
+    width: 750px;
+}
+/*Sirve para quitar el borde del panel grid*/
+.panel_grid_center.ui-panelgrid>*>tr,
+.panel_grid_center.ui-panelgrid .ui-panelgrid-cell {
+    border: none;
+}
+
+.panelgridaddpago {
+    
+}
+/*Sirve para quitar el borde del panel grid*/
+.panelgridaddpago.ui-panelgrid>*>tr,
+.panelgridaddpago.ui-panelgrid .ui-panelgrid-cell {
+    border: none;
+}
+
+.panelgridtipoauditor {
+    width: 50%;
+}
+/*Sirve para quitar el borde del panel grid*/
+.panelgridtipoauditor.ui-panelgrid>*>tr,
+.panelgridtipoauditor.ui-panelgrid .ui-panelgrid-cell {
+    border: none;
+}
+
+.panelgridsinborde {
+    
+}
+/*Sirve para quitar el borde del panel grid*/
+.panelgridsinborde.ui-panelgrid>*>tr,
+.panelgridsinborde.ui-panelgrid .ui-panelgrid-cell {
+    border: none;
+}
+
+.columna_izquierda {
+    text-align: right;
+    background-color: #f3eded;
+}
+.columna_derecha {
+    text-align: left;
+    border: #FF6600;
+}
+
+.panel_grid_center_clb {
+    margin: 0 auto;
+}
+/*Sirve para quitar el borde del panel grid*/
+.panel_grid_center_clb.ui-panelgrid>*>tr,
+.panel_grid_center_clb.ui-panelgrid .ui-panelgrid-cell {
+    border: none;
+}
+
+.panel_center {
+    margin: 0 auto;
+    width: 750px;
+}
+
+.panel_grid_center_4 {
+    margin: 0 auto;
+}
+.panel_grid_center_4.ui-panelgrid>*>tr,
+.panel_grid_center_4.ui-panelgrid .ui-panelgrid-cell {
+    border: none;
+}
+
+.panel_grid_center tr, .panel_grid_center td {
+    border: white;
+}
+
+.panel_grid_center_2 {
+    margin: 0 auto;
+}
+
+.panel_grid_center_3 {
+    margin: 0 auto;
+    width: 720px;
+}
+
+.size_botones_internos {
+    width: 100px;
+    height: 35px;
+}
+
+.tabla_cursos {
+    width: 500px;
+}
+
+.texto_1 {
+    font-size: 10px;
+}
+
+.texto_2 {
+    font-size: 11px;
+}
+
+.texto_tabla_datos {
+    font-size: 11px;
+    width: 100%;
+    padding-right: 10px;
+}
+
+.texto_tabla_datos tr, .texto_tabla_datos td {
+    font-size: 11px;
+}
+
+.textotablaclb {
+    
+}
+
+.textotablaclb tr, .textotablaclb td {
+    font-size: 12px;
+}
+.texto_tabla_datos_codigo {
+    font-weight: bold;
+}
+
+.texto_tabla_datos_size {
+    text-align: center;
+    width: 150px;
+}
+
+.texto_tabla_datos_accion {
+    text-align: center;
+    width: 50px;
+}
+
+.panel_grid_center_login {
+    margin: 0 auto;
+    text-align: left;
+}
+/*Sirve para quitar el borde del panel grid*/
+.panel_grid_center_login.ui-panelgrid>*>tr,
+.panel_grid_center_login.ui-panelgrid .ui-panelgrid-cell {
+    border: none;
+}
+
+.panel_grid_usuario {
+    width: 100%;
+}
+/*Sirve para quitar el borde del panel grid*/
+.panel_grid_usuario.ui-panelgrid>*>tr,
+.panel_grid_usuario.ui-panelgrid .ui-panelgrid-cell {
+    background: transparent;
+    border: none;
+}
+.columnausr01 {
+    
+}
+.columnausr02 {
+    text-align: right;
+}
+.welcomemsg {
+    /*color: #30c1d8;*/
+    color: #2c76c3;
+    text-shadow: 0px 0px 0px #999;
+    /*text-shadow: desplazamiento derecha, desplazamiento abajo, difuminado, color*/
+}
+.welcomemsg02 {
+    color: #000000;
+    text-shadow: 0px 0px 0px #999;
+}
+
+.boton_salir {
+    margin: 0 auto;
+    text-decoration: none;
+    float: left;
+    font-size: 14px;
+}
+.panelgrid404 {
+    margin: 0 auto;
+    width: 700px;
+}
+
+.texto_tabla_pn {
+    font-size: 11px;
+    width: 100%;
+}
+
+.texto_tabla_pn_codigo {
+    font-weight: bold;
+}
+
+.texto_tabla_pn tr, .texto_tabla_pn td {
+    font-size: 12px;
+}
+
+.texto_tabla_listas_admin {
+    font-size: 11px;
+    width: 100%;
+}
+
+.texto_tabla_listas_admin_codigo {
+    font-weight: bold;
+}
+
+.texto_tabla_listas_admin tr, .texto_tabla_listas_admin td {
+    font-size: 12px;
+}
+
+.selector_fecha {
+    font-size: 13px;
+}
+
+.panelgrid_bloque_estado {
+    width: 50%;
+}
+
+.texto_bloque_estado {
+    font-size: 13px;
+}
+
+.size_uploadfiles_panel {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.size_uploadfiles {
+    margin: 0 auto;
+    width: 100%;
+}
+
+#ui-datepicker-div {
+    font-size: 13px;
+}
+
+.msg_error_pago {
+    color: red;
+    text-align: center;
+}
+
+.textotablapagos {
+    
+}
+
+.textotablapagos tr, .textotablapagos td {
+    font-size: 12px;
+}
+
+.panel_grid_pagos {
+    margin: 0 auto;
+    width: 750px;
+}
+/*Sirve para quitar el borde del panel grid*/
+.panel_grid_pagos.ui-panelgrid>*>tr,
+.panel_grid_pagos.ui-panelgrid .ui-panelgrid-cell {
+    border: none;
+}
+
+.panelgrid_detallepago {
+    margin: auto 0;
+}
+/*Sirve para quitar el borde del panel grid*/
+.panelgrid_detallepago.ui-panelgrid>*>tr,
+.panelgrid_detallepago.ui-panelgrid .ui-panelgrid-cell {
+    border: none;
+}
+
+.paneluploadfiles {
+    margin: 0 auto;
+    width: 780px;
+}
+
+/*Realizar cambio global de tamaño de fuente*/
+.ui-widget, .ui-widget .ui-widget {
+    font-size: 90%;
+}
+
+/* link */
+a.lnks {
+    text-decoration: none;
+}
+a.lnks:link {
+    color: #000000;
+    font-size: 13px;
+}
+/* visited link */
+a.lnks:visited {
+    color: #000000;
+}
+/* mouse over link */
+a.lnks:hover {
+    color: #FF6600;
+}
+/* selected link */
+a.lnks:active {
+    color: buttonface;
+}
+
+/* link */
+a.lnk {
+    text-decoration: none;
+    font-size: 12px;
+    font-family: fantasy;
+    font-weight: lighter;
+}
+a.lnk:link {
+    color: #000000;
+}
+/* visited link */
+a.lnk:visited {
+    color: #000000;
+}
+/* mouse over link */
+a.lnk:hover {
+    color: #FF6600;
+}
+/* selected link */
+a.lnk:active {
+    color: buttonface;
+}
+
+/* link */
+a.lnksestado:link {
+    color: #000000;
+}
+/* visited link */
+a.lnksestado:visited {
+    color: #000000;
+}
+/* mouse over link */
+a.lnksestado:hover {
+    color: #FF6600;
+}
+/* selected link */
+a.lnksestado:active {
+    color: buttonface;
+}
+
+/*Cambiar el color de fondo del header del tabview*/
+.ui-tabs.ui-tabs-top > .ui-tabs-nav {
+    /*background: activeborder;*/
+    background: transparent;
+}
+
+/*Cambiar el color de fondo de los paneles del tabview*/
+.ui-tabs.ui-tabs-top > .ui-tabs-panels {
+    background: transparent;
+}
+
+/*Cambiar los tabs el color de fondo y tamaño de puete por defecto
+  reducir el tamaño por defencto cuando no estan seleccionadas*/
+.ui-tabs.ui-tabs-top > .ui-tabs-nav > .ui-state-default {
+    background: transparent;
+    /*background-image: url("../images/config-icon.png");*/
+    margin-top: 0.6em; 
+    font-size: 80%; 
+    font-weight: bold;
+}
+
+/*Cambiar los tabs el color de fuente por defecto*/
+.ui-tabs.ui-tabs-top > .ui-tabs-nav > .ui-state-default a {
+    color: #a1a1a1;
+}
+
+/*Cambiar los tabs el color de fuente cuando pasa el puntero sobre ella*/
+.ui-tabs.ui-tabs-top > .ui-tabs-nav > .ui-state-default a:hover {
+    color: #3064a8;
+}
+
+.ui-tabs.ui-tabs-top > .ui-tabs-nav > .ui-state-default a:active {
+    
+}
+
+/*Quitar el color del fondo de los tabs y hacerlos mas grandes cuando estan
+  seleccionados*/
+.ui-tabs.ui-tabs-top > .ui-tabs-nav > .ui-state-selected,
+.ui-tabs.ui-tabs-top > .ui-tabs-nav > .ui-state-active {
+    background: transparent;
+    margin-top: 0em; 
+    font-size: 100%;
+}
+
+/*Cambiar el color de fuente de los tabs cuando estan seleccionadas*/
+.ui-tabs.ui-tabs-top > .ui-tabs-nav > .ui-state-selected a,
+.ui-tabs.ui-tabs-top > .ui-tabs-nav > .ui-state-active a {
+    color: #459e00;
+}
+
+.panel_grid_center02 {
+    margin: 0 auto;
+    width: 100px;
+}
+/*Sirve para quitar el borde del panel grid*/
+.panel_grid_center02.ui-panelgrid>*>tr,
+.panel_grid_center02.ui-panelgrid .ui-panelgrid-cell {
+    border: none;
+}
+
+.headerimg01 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-image: url("../images/ama-vida-logo.png");
+    background-repeat: no-repeat;
+}
+.headerimg02 {
+    width: 271px;
+    height: 100px;
+    float: right;
+    background-image: url("../images/arcom-logo.png");
+    background-repeat: no-repeat;
+}
+.headertop {
+    /*background-image: url("../images/header-back.png");
+    background-repeat: repeat-x;*/
+    height: 100px;
+}
+
+.pgsinborde {
+    
+}
+.pgsinborde.ui-panelgrid>*>tr,
+.pgsinborde.ui-panelgrid .ui-panelgrid-cell {
+    border: none;
+    background: transparent;
+}
+
+/*Permite cambiar la posición del growl*/
+.ui-growl{
+    /*position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -100px;*/
+}
+/*Permite cambiar la fuente del mensaje del growl*/
+.ui-growl-message{
+    /*color: #459e00 !important;*/
+    color: #cfd8dc;
+    border-color: #cfd8dc;
+}
+/*Permite cambiar el fondo del mensaje del growl*/
+.ui-growl-item {
+    background-color: #546e7a !important;
+}
+/*Permite cambiar borde del fondo del mensaje del growl*/
+.ui-growl-item-container {
+    border: none;
+}
+
+/*Centrar los botones del dialogo de confirmacion*/
+.ui-dialog-buttonpane {
+    text-align: center !important;
+}
+
+.panelgrid-resetpassword {
+    margin: 0 auto;
+}
+/*Sirve para quitar el borde del panel grid*/
+.panelgrid-resetpassword.ui-panelgrid>*>tr,
+.panelgrid-resetpassword.ui-panelgrid .ui-panelgrid-cell {
+    border: none;
+}
+
+.inputtextarea-form {
+    width: 340px !important;
+    height: 130px !important;
+}
+.inputtext-form {
+    width: 340px !important;
+}
+.onemenu-form {
+    width: 349px !important;
+}
+

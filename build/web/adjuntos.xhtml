@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    
+    <ui:composition>
+        <p:growl id="growl" showDetail="true"/>
+        <h:form id="addatt" enctype="multipart/form-data">
+            <p:panelGrid columns="2" styleClass="panel_grid_center">
+                <blockquote>
+                    <p style="text-align: justify; font-size: 15px;">En esta sección debe subir todos los requisitos en formato digital incluyendo el comprobante de depósito por derecho de trámite</p>
+                    <p style="text-align: justify; font-size: 12px;">Puede subir hasta 5 archivos de 5MB cada uno, se aceptan los formatos PDF y DOC</p>
+                </blockquote>
+            </p:panelGrid>
+
+            <p:panelGrid columns="2" styleClass="panel_grid_center">
+                <f:facet name="header">
+                    <h:panelGroup style="display:block; text-align:center">
+                        <p:outputLabel value="SUBIR DOCUMENTOS HABILITANTES"/>
+                    </h:panelGroup>
+                </f:facet>
+                <p:commandButton value="Agregar" oncomplete="PF('archivosDlgWg').show();" update=":archivosform" style="width: 100px"/>
+            </p:panelGrid>
+
+            <p:panelGrid columns="1" styleClass="panel_grid_center">  
+                <p:dataTable id="listfiles" var="file" value="#{adjuntoMB.upFileList}" emptyMessage="No se han agregado archivos" styleClass="texto_tabla_datos">
+                    <p:column headerText="Nombre">
+                        <h:outputText value="#{file.fileName}"/>
+                   </p:column>
+                    <p:column headerText="Tamaño" styleClass="texto_tabla_datos_size">
+                        <h:outputText value="#{adjuntoMB.sizeMB(file.size)}"/>
+                    </p:column>
+                    <p:column headerText="Quitar" styleClass="texto_tabla_datos_accion">
+                        <p:commandButton icon="ui-icon-close" actionListener="#{adjuntoMB.removeFile(file)}" style="height: 20px ; width: 20px"  ajax="false" update="listfiles"/>
+                    </p:column>
+                </p:dataTable>
+            </p:panelGrid>
+        </h:form>
+        
+        <!-- CARGA DE ARCHIVOS -->
+        <p:dialog id="archivosDlg" widgetVar="archivosDlgWg" resizable="true" modal="true" showEffect="clip" hideEffect="clip"
+                  header="Cargar archivos">
+            <h:form id="archivosform">
+                <p:panelGrid>
+                    <p:row>
+                        <p:column colspan="2" style="text-align: center">
+                            <p:fileUpload id="fuadjuntos" mode="advanced" multiple="true" fileLimit="5" sizeLimit="8388608" allowTypes="/(\.|\/)(pdf|PDF|doc|DOC|docx|DOCX)$/"
+                                          fileLimitMessage="Solo puede subir 5 archivos"
+                                          invalidSizeMessage="Su archivo excede el tamaño permitido de 5MB"
+                                          invalidFileMessage="Tipo de archivo no admitido"
+                                          cancelLabel="Cancelar" uploadLabel="Subir" label="Examinar"
+                                          fileUploadListener="#{adjuntoMB.addArchivos}"
+                                          update=":addatt:listfiles :growl"/>
+                        </p:column>
+                    </p:row>
+                </p:panelGrid>
+            </h:form>
+        </p:dialog>
+    </ui:composition>
+</html>
+
