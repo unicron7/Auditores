@@ -28,7 +28,7 @@
                     
                     <p:row>
                         <p:column>
-                            <p:dataTable id="clbtable" var="colab" styleClass="textotablaclb" value="#{empresaManagedBean.empresaConsultoraAuditoria.colaboradores}" emptyMessage="No se han agregado colaboradores">
+                            <p:dataTable id="clbtable" var="colab" styleClass="textotablaclb" value="#{empresaConsultoraMB.empresaConsultoraAuditoria.colaboradores}" emptyMessage="No se han agregado colaboradores">
                                 <p:column headerText="Cédula">
                                     <h:outputText value="#{colab.cedula}"/>
                                 </p:column>
@@ -50,7 +50,7 @@
                                 </p:column>
 
                                 <p:column headerText="Quitar" style="width:50px;text-align: center">
-                                    <p:commandButton icon="ui-icon-close" actionListener="#{empresaManagedBean.removeColaborador(colab)}" ajax="false" update="clbtable"/>
+                                    <p:commandButton icon="ui-icon-close" actionListener="#{empresaConsultoraMB.removeColaborador(colab)}" ajax="false" update="clbtable"/>
                                 </p:column>
                             </p:dataTable>
                         </p:column>
@@ -67,8 +67,8 @@
                 <p:panelGrid columns="1" styleClass="panel_grid_pagos">
                     <f:facet name="footer">
                         <h:panelGroup style="display:block; text-align:center">
-                            <p:commandButton value="Siguiente" action="#{empresaManagedBean.goToAdjuntos()}" ajax="false"></p:commandButton>
-                            <p:commandButton value="Cancelar" action="#{empresaManagedBean.cancelAction()}" ajax="false" immediate="true"></p:commandButton>
+                            <p:commandButton value="Siguiente" action="#{empresaConsultoraMB.goToAdjuntos()}" ajax="false"></p:commandButton>
+                            <p:commandButton value="Cancelar" action="#{empresaConsultoraMB.cancelAction()}" ajax="false" immediate="true"></p:commandButton>
                         </h:panelGroup>
                     </f:facet>
                 </p:panelGrid>
@@ -84,7 +84,7 @@
                                 <p:outputLabel value="Cédula:"/>
                             </p:column>
                             <p:column>
-                                <p:inputText id="cedulaclb" size="30" value="#{empresaManagedBean.colaborador.cedula}" validatorMessage="La cédula no es valida">
+                                <p:inputText id="cedulaclb" size="30" value="#{empresaConsultoraMB.colaborador.cedula}" validatorMessage="La cédula no es valida">
                                     <f:validateRegex pattern="[0-9]*"/>
                                 </p:inputText>
                                 <p:watermark for="cedulaclb" value="CI colaborador *"/>
@@ -97,7 +97,7 @@
                                 <p:outputLabel value="Nombre:"/>
                             </p:column>
                             <p:column>
-                                <p:inputText id="nombreclb" size="30" value="#{empresaManagedBean.colaborador.nombre}" validatorMessage="Valor no válido">
+                                <p:inputText id="nombreclb" size="30" value="#{empresaConsultoraMB.colaborador.nombre}" validatorMessage="Valor no válido">
                                     <f:validateRegex pattern="[a-zA-ZñáéíóúÑÁÉÍÓÚ\s]*"/>
                                 </p:inputText>
                                 <p:watermark for="nombreclb" value="Nombre colaborador *"/>
@@ -110,7 +110,7 @@
                                 <p:outputLabel value="Apellido:"/>
                             </p:column>
                             <p:column>
-                                <p:inputText id="apellidoclb" size="30" value="#{empresaManagedBean.colaborador.apellido}" validatorMessage="Valor no válido">
+                                <p:inputText id="apellidoclb" size="30" value="#{empresaConsultoraMB.colaborador.apellido}" validatorMessage="Valor no válido">
                                     <f:validateRegex pattern="[a-zA-ZñáéíóúÑÁÉÍÓÚ\s]*"/>
                                 </p:inputText>
                                 <p:watermark for="apellidoclb" value="Apellido colaborador *"/>
@@ -123,7 +123,7 @@
                                 <p:outputLabel value="Título:"/>
                             </p:column>
                             <p:column>
-                                <p:inputText id="tituloclb" size="30" value="#{empresaManagedBean.colaborador.titulo}">
+                                <p:inputText id="tituloclb" size="30" value="#{empresaConsultoraMB.colaborador.titulo}">
                                     <f:validateRegex pattern="[a-zA-ZñáéíóúÑÁÉÍÓÚ.,\s]*"/>
                                 </p:inputText>
                                 <p:watermark for="tituloclb" value="Título profesional *"/>
@@ -136,7 +136,7 @@
                                 <p:outputLabel value="Registro Senescyt:"/>
                             </p:column>
                             <p:column>
-                                <p:inputText id="senescytclb" size="30" value="#{empresaManagedBean.colaborador.regSenescyt}">
+                                <p:inputText id="senescytclb" size="30" value="#{empresaConsultoraMB.colaborador.regSenescyt}">
                                     <f:validateRegex pattern="[a-zA-Z0-9-]*"/>
                                 </p:inputText>
                                 <p:watermark for="senescytclb" value="Número de registro Senescyt *"/>
@@ -149,13 +149,13 @@
                                 <p:outputLabel value="Años de experiencia:"/>
                             </p:column>
                             <p:column>
-                                <p:spinner  value="#{empresaManagedBean.colaborador.aniosExperiencia}" min="1" max="25" size="5"/>
+                                <p:spinner  value="#{empresaConsultoraMB.colaborador.aniosExperiencia}" min="1" max="25" size="5"/>
                             </p:column>
                         </p:row>
                         
                         <p:row>
                             <p:column colspan="2" style="text-align: right">
-                                <p:commandButton value="Aceptar" actionListener="#{empresaManagedBean.addColaborador()}"
+                                <p:commandButton value="Aceptar" actionListener="#{empresaConsultoraMB.addColaborador()}"
                                                  oncomplete="PF('addclb').hide()" update=":addcolab:clbtable"/>
                             </p:column>
                         </p:row>

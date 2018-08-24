@@ -85,7 +85,7 @@ public class EmpresaConsultoraMB implements Serializable {
         this.empresaConsultoraAuditoria= new EmpresaConsultoraAuditoria();
         this.empresaConsultoraAuditoria.setDireccion(new Direccion());
         this.empresaConsultoraAuditoria.setActivo(true);
-        this.empresaConsultoraAuditoria.setEstado(catalogoSB.findByNemonico(Auditor.REGISTRADO));
+        this.empresaConsultoraAuditoria.setEstado(catalogoSB.findByNemonico(Auditor.TRAMITE));
         this.empresaConsultoraAuditoria.setAniosExperiencia(5);
         this.colaborador= new Colaborador();
         this.colaborador.setAniosExperiencia(1);

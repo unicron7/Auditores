@@ -84,7 +84,7 @@ public class ProfesionalAuditorMB implements Serializable {
         this.profesionalAuditorExterno= new ProfesionalAuditorExterno();
         this.profesionalAuditorExterno.setDireccion(new Direccion());
         this.profesionalAuditorExterno.setActivo(true);
-        this.profesionalAuditorExterno.setEstado(catalogoSB.findByNemonico(Auditor.REGISTRADO));
+        this.profesionalAuditorExterno.setEstado(catalogoSB.findByNemonico(Auditor.TRAMITE));
         this.profesionalAuditorExterno.setAniosExperiencia(5);
         this.pago= new Pago();
         this.profesionalAuditorExterno.setPagos(new ArrayList<>());

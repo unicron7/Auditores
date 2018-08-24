@@ -134,7 +134,7 @@
                         </p:column>
                         
                         <p:column styleClass="columna_derecha">
-                            <p:selectOneMenu  id="somTipoAuditor" required="true" value="#{profesionalAuditorMB.selectedTipoAuditorValue}"
+                            <p:selectOneMenu  id="somTipoAuditor" required="true" value="#{empresaConsultoraMB.selectedTipoAuditorValue}"
                                               converter="#{catalogoConverter}" styleClass="onemenu-form" requiredMessage="Debe seleccionar un tipo de auditor">
                                 <f:selectItem itemLabel="Seleccione..." itemValue="#{null}" noSelectionOption="true"/>
                                 <f:selectItems value="#{catalogMB.tiposAuditor}"
@@ -210,7 +210,7 @@
                     <p:selectOneMenu  id="somProvincia" required="true" value="#{empresaConsultoraMB.empresaConsultoraAuditoria.direccion.provincia}"
                                       converter="#{localidadConverter}" requiredMessage="Debe seleccionar una provincia">
                         <f:selectItem itemLabel="Seleccione..." itemValue="#{null}" noSelectionOption="true"/>
-                        <f:selectItems value="#{profesionalAuditorMB.provincias}"
+                        <f:selectItems value="#{empresaConsultoraMB.provincias}"
                                        var="l"
                                        itemLabel="#{l.nombre}"
                                        itemValue="#{l}"/>
