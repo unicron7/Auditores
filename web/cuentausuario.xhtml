@@ -192,11 +192,11 @@
                         </p:panelGrid>
                     </p:tab>
                     
-                    <p:tab title="Auditorias designadas" rendered="#{loginMB.showconcesiontab}">
+                    <p:tab title="Auditorias asignadas" rendered="#{loginMB.showconcesiontab}">
                         <f:facet name="title">
                             <p:graphicImage value="./resources/images/auditoria-icon.png" width="25" height="25"/>
                             <p:spacer width="10" height="10"/>
-                            <h:outputText value="Auditorias designadas"/>
+                            <h:outputText value="Auditorias asignadas"/>
                         </f:facet>
                         
                         <p:dataTable id="cmadt" var="auditoria" value="#{auditoriaMB.auditorias}" 
@@ -204,7 +204,7 @@
                                      currentPageReportTemplate="Mostrando {startRecord}-{endRecord} de {totalRecords}" 
                                      paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                      rowsPerPageTemplate="5,10,15" paginatorPosition="bottom" styleClass="texto_tabla_pn" rowIndexVar="rowIndex" 
-                                     emptyMessage="No tiene auditorias designadas">
+                                     emptyMessage="No tiene auditorias asignadas">
                             <p:column headerText="N°" style="width:20px;text-align:right">
                                 <h:outputText value="#{rowIndex + 1}"/>
                             </p:column>
@@ -230,7 +230,7 @@
                             </p:column>
                             
                             <p:column headerText="Tipo de Auditoria" sortBy="#{auditoria.tipoAuditoria}">
-                                <h:outputText value="#{catalogMB.obtenerCatalogoPorId(auditoria.tipoAuditoria).nombre}"/>
+                                <h:outputText value="#{auditoria.tipoAuditoria.nombre}"/>
                             </p:column>
                             
                             <p:column headerText="Fecha asignación" sortBy="#{auditoria.fechaDeAsignacion}" style="width:100px;text-align: center">
